@@ -1,28 +1,56 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <!-- <main>
+      <div class="search-box">
+        <input type="text" class="search-bar" placeholder="Search..." />
+      </div>
+    </main> -->
+
+    <div id="nav">
+      <router-link to="/">Home</router-link> |
+      <router-link to="/myplate">Myplate</router-link> |
+      <router-link to="/Dashboard">Dashboard</router-link> |
+      <router-link to="/nutrition">Nutrition</router-link>
+    </div>
+    <router-view />
   </div>
 </template>
 
-<script>
-import HelloWorld from './components/HelloWorld.vue'
-
-export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-}
-</script>
-
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "montserrat", sans-serif;
+}
+
+main {
+  min-height: 80vh;
+  padding: px;
+
+  font-family: Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
+
   color: #2c3e50;
-  margin-top: 60px;
+}
+
+#nav {
+  padding: 20px;
+  position: fixed;
+  bottom: 0px;
+}
+
+#nav a {
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+#nav a.router-link-exact-active {
+  color: #42b983;
 }
 </style>
+
