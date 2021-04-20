@@ -18,7 +18,7 @@
       <div>
         <div>
           <p id="NutritionHead">Spinach</p>
-          <h2 id="Dollar">$16</h2>
+          <h2 id="Dollar">$11</h2>
         </div>
 
         <div id="content">
@@ -40,6 +40,7 @@
             <button
               id="AddToMyPlatebtn"
               class="p-3 m-5 w-2/3 text-white rounded-full"
+              @click="addProduct()"
               href="/Dashboard"
             >
               Add to My plate
@@ -52,6 +53,30 @@
 </template>
 
 <script>
+import { db } from "@/db";
+
+export default {
+  data: function () {
+    return {
+      productImage:
+        "https://ucarecdn.com/6448a1b6-77c8-4278-b71c-bb2baffe75f9/Untitled401.png",
+      productName: "spinach",
+      productPrice: "$11",
+    };
+  },
+  methods: {
+    addProduct() {
+      db.collection("product").add({
+        productImage: this.productImage,
+        productName: this.productName,
+        productPrice: this.productPrice,
+      });
+    },
+  },
+  firestore: {
+    product: db.collection("product"),
+  },
+};
 </script>
 
 
